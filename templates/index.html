@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tasks
+{% endblock %}
+
+{% block main %}
+
+    <main class="container py-0 text-center">
+    <button class="btn btn-link"><a href="add">Add a task</a></button>
+        {% if tasks|length == 0 %}
+        <h4 class="container py-3 text-center">A fresh start!</h4>
+        {% else %}
+      | <button class="btn btn-link"><a href="delete">Clear all</a></button>
+        <table class="table table">
+            <thead>
+                <tr>
+                    <th class="text-start">Task</th>
+                    <th class="text-start">Description</th>
+                    <th class="text-end">Assigned</th>
+                    <th class="text-end">Deadline</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td class="text-start">{{ task.task }}</td>
+                    <td class="text-start">{{ task.description }}</td>
+                    <td class="text-end">{{ task.date }}</td>
+                    <td class="text-end">{{ task.deadline }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </main>
+{% endblock %}

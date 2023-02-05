@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add a task
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="mb-3">
+            <p>Anything to add?</p>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="task" placeholder="Task" type="text">
+        </div>
+        <div class="mb-3">
+            <textarea autocomplete="off" autofocus class="form-control mx-auto w-auto" name="description" rows="5" cols="30" placeholder="Description" type="text"></textarea>
+        </div>
+        <div class="mb-3">
+            <h6>Deadline</h6>
+            <input autofocus class="form-control mx-auto w-auto" name="deadline" type="date">
+        </div>
+        <button class="btn btn-dark" type="submit">Add</button>
+    </form>
+{% endblock %}
